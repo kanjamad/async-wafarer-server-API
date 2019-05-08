@@ -6,6 +6,10 @@ const session = require('express-session');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+// Controllers
+const ctrl = require('./controllers');
+
+
 // ----------------------------- MIDDLEWARE ----------------------------- //
 // Protect Headers
 app.use(helmet());
@@ -29,9 +33,19 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
-// ----------------------------- HTML ENDPOINT ----------------------------- //
 
-app.get('/', (req, res) => res.send('<h1>Welcome to Wayfarer API</h1>'));
+ // ----------------------------- HTML ENDPOINT ----------------------------- //	// ----------------------------- HTML ENDPOINT ----------------------------- //
+
+
+ // GET Root Route
+app.get('/', (req, res) => res.send('<h1>Welcome to Wayfarer API</h1>'));	app.get('/', (req, res) => res.send('<h1>Welcome to Wayfarer API</h1>'));
+
+
+ // ----------------------------- API ENDPOINT ----------------------------- //
+
+ // Auth Routes
+app.use('/api/v1/auth', ctrl.auth);
+
 
 
 // ----------------------------- START SERVER ----------------------------- //
