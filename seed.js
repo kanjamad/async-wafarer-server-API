@@ -581,10 +581,9 @@ try {
 
     console.log('Exiting...');
     process.exit();
-
+    
 } catch(err) {
     console.log(err);
 }
 }
 seedDatabase();
-console.log(3)
